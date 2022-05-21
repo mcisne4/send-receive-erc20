@@ -1,0 +1,11 @@
+# Environment
+node_modules
+.vscode
+
+# Private
+.env
+
+# Hardhat
+cache
+artifacts
+deployments

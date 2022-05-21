@@ -1,0 +1,30 @@
+{
+  "printWidth": 60,
+  "tabWidth": 4,
+  "useTabs": true,
+  "semi": false,
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "*.sol",
+      "options": {
+        "tabWidth": 4,
+        "singleQuote": false,
+        "explicitTypes": "always"
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "tabWidth": 2,
+        "useTabs": false
+      }
+    }
+  ]
+}
