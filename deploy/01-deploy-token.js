@@ -3,7 +3,6 @@ const { network } = require('hardhat')
 module.exports = async (
 	hre = { getNamedAccounts, deployments, network }
 ) => {
-	// console.log(deployments)
 	const { deploy, log } = deployments
 
 	// --- Get Accounts ---
@@ -11,19 +10,14 @@ module.exports = async (
 		await getNamedAccounts()
 
 	// --- Deploy Contract ---
-	const templateContract = await deploy('Template', {
+	const templateContract = await deploy('Token', {
 		from: deployer,
 		args: [],
-		log: true,
-		waitConfirmations: 1
+		log: true
 	})
-	log('\nTemplate contract deployed')
+	log('\nToken deployed')
 	log(`   Contract Address: ${templateContract.address}`)
-	log(`   Network: '${network.name}'`)
-	log(`   Deployer: ${deployer}`)
-	log(`   User 1: ${user1}`)
-	log(`   User 2: ${user2}`)
-	log(`   User 3: ${user3}`)
+	log(`   Deployer: ${deployer}\n`)
 }
 
-module.exports.tags = ['Template']
+module.exports.tags = ['All', 'Token']
