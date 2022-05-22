@@ -40,12 +40,4 @@ contract Transfer {
 		total_balance -= _amount;
 		token.transfer(msg.sender, _amount);
 	}
-
-	function getBalance(address _account)
-		public
-		view
-		returns (uint256)
-	{
-		return balances[_account];
-	}
 }
