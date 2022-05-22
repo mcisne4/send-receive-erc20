@@ -7,7 +7,7 @@ contract Transfer {
 	IERC20 internal token;
 
 	uint256 public total_balance;
-	mapping(address => uint256) public balance;
+	mapping(address => uint256) public balances;
 
 	constructor(address token_address) {
 		token = IERC20(token_address);
@@ -27,17 +27,25 @@ contract Transfer {
 			address(this),
 			_amount
 		);
-		balance[msg.sender] += _amount;
+		balances[msg.sender] += _amount;
 		total_balance += _amount;
 	}
 
 	function sendTokens(uint256 _amount) external payable {
 		require(
-			balance[msg.sender] >= _amount,
+			balances[msg.sender] >= _amount,
 			"insufficient token balance"
 		);
-		balance[msg.sender] -= _amount;
+		balances[msg.sender] -= _amount;
 		total_balance -= _amount;
 		token.transfer(msg.sender, _amount);
+	}
+
+	function getBalance(address _account)
+		public
+		view
+		returns (uint256)
+	{
+		return balances[_account];
 	}
 }
