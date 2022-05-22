@@ -1,4 +1,4 @@
-# Hardhat Starter Template
+# Contracts that can Send and Receive ERC20 Tokens
 
 ## Installation
 
